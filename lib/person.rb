@@ -32,19 +32,11 @@ class Person
   end
 
   def clean?
-    if self.hygiene > 7
-       true
-    else
-       false
-     end
+    self.hygiene > 7 ? true : false
   end
 
   def happy?
-    if self.happiness > 7
-       true
-    else
-       false
-     end
+    self.happiness > 7 ? true : false
   end
 
   def get_paid(num)
@@ -70,11 +62,12 @@ class Person
   end
 
   def start_conversation(callee, topic)
-    if topic == "politics"
+    case topic
+    when "politics"
       self.happiness -= 2
       callee.happiness -= 2
       "blah blah partisan blah lobbyist"
-    elsif topic == "weather"
+    when "weather"
       self.happiness += 1
       callee.happiness += 1
       "blah blah sun blah rain"
